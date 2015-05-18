@@ -83,7 +83,7 @@ namespace JAMM.Data
             try
             {
                 bool bandera = Reader.Read();
-                ((IEntity)this).Load(new IDataRecord);
+                //((IEntity)this).Load(new IDataRecord);
             }
             finally
             {
