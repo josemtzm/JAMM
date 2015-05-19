@@ -5,7 +5,7 @@ namespace JAMM.Data
 {
     public interface IEntity
     {
-        public abstract virtual void Load(IDataRecord record);
-        public abstract virtual void Load(IDataRecord record, string[] fieldNames);
+        void Load(IDataRecord record);
+        void Load(IDataRecord record, string[] fieldNames);
     }
 }

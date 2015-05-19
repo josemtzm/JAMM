@@ -7,7 +7,10 @@ namespace JAMM.Data
 {
     public class DataContext
     {
-        public DataContext(string connectionString);
+        public DataContext(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
         /// <summary>
         /// The connection string to a database
         /// </summary>
@@ -16,7 +19,7 @@ namespace JAMM.Data
         public string ConnectionString
         {
             get { return connectionString; }
-            //set { connectionString = value; }
+            set { connectionString = value; }
         }
 
         /// <summary>
@@ -79,39 +82,55 @@ namespace JAMM.Data
         }
         protected T ExecuteEntity<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, int? timeout = null) where T : IEntity, new()
         {
-            SqlDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, false, timeout);
+            IDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, false, timeout);
+            T obj = new T(); ;
             try
             {
-                bool bandera = Reader.Read();
-                //((IEntity)this).Load(new IDataRecord);
+                if (Reader.Read())
+                {
+                    obj.Load(Reader);
+                }
+
             }
             finally
             {
-                
+                Reader.Dispose();
+
             }
             
-            return T;
+            return obj;
         }
-        protected List<T> ExecuteList<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
-        protected void ExecuteNonQuery(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
+        //protected List<T> ExecuteList<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
+        //protected void ExecuteNonQuery(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
         protected SqlDataReader ExecuteReader(string StoreProcedure, IEnumerable<SqlParameter> Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
         {
-            SqlDataReader DataReader = new SqlDataReader();
-            SqlConnection connection = new SqlConnection(ConnectionString);
+            SqlDataReader DataReader;
+            SqlConnection connection = new SqlConnection(connectionString);
             try 
             {
                 SqlCommand command = new SqlCommand();
-                try
-                {
 
-                }
+                    command.CommandText = StoreProcedure;
+                    command.CommandType = CommandType;
+                    if(Timeout != null)
+                    {
+                        command.CommandTimeout = (int)Timeout;
+                    }
+                    foreach(SqlParameter param in Parameters)
+                    {
+                        command.Parameters.Add(param);
+                    }
+                    DataReader = command.ExecuteReader();
             }
+            finally
+            {
 
+            }
             return DataReader;
         }
-        protected T ExecuteScalar<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
-        protected object ExecuteScalar(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
-        protected T ExecuteScalar<T>(string storeProcedure, T defaultValue, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
-        protected Table<T> ExecuteTable<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null) where T : IEntity, new();
+        //protected T ExecuteScalar<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
+        //protected object ExecuteScalar(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
+        //protected T ExecuteScalar<T>(string storeProcedure, T defaultValue, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
+        //protected Table<T> ExecuteTable<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null) where T : IEntity, new();
     }
 }

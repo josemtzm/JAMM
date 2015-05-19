@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66695A25-5894-45AC-801A-42D471C51043}</ProjectGuid>
+    <ProjectGuid>{96663A26-05BA-43F7-BA03-BFA71B46A9B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JAMM</RootNamespace>
-    <AssemblyName>JAMM</AssemblyName>
+    <RootNamespace>JAMM.Model</RootNamespace>
+    <AssemblyName>JAMM.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXssLibrary">
+      <HintPath>..\packages\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="DbContext.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\MappingAttribute.cs" />
+    <Compile Include="Entities\Parameter.cs" />
+    <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +61,13 @@
       <Project>{5d8355da-d5f5-47a0-a4a6-b1df23494f2d}</Project>
       <Name>JAMM.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="DbContext\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
