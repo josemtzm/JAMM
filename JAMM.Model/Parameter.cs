@@ -19,19 +19,20 @@ namespace JAMM.Model
         {
             DbContext ctx = new DbContext();
 
-            return ctx.ExecuteTable<Parameter>("ParameterGetAll");
+            //return ctx.ExecuteTable<Parameter>("ParameterGetAll");
+            return null;
         }
 
         public static void ParameterSet(string label, string value, Guid userName)
         {
             DbContext ctx = new DbContext();
 
-            ctx.ExecuteNonQuery("ParameterSet", new[]
-            {
-                new SqlParameter("@Label", SqlDbType.VarChar) { Value = label },
-                new SqlParameter("@Value", SqlDbType.VarChar) { Value = value },
-                new SqlParameter("@UserName", SqlDbType.UniqueIdentifier) { Value = userName }
-            });
+            //ctx.ExecuteNonQuery("ParameterSet", new[]
+            //{
+            //    new SqlParameter("@Label", SqlDbType.VarChar) { Value = label },
+            //    new SqlParameter("@Value", SqlDbType.VarChar) { Value = value },
+            //    new SqlParameter("@UserName", SqlDbType.UniqueIdentifier) { Value = userName }
+            //});
         }
     }
 }

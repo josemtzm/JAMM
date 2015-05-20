@@ -106,25 +106,28 @@ namespace JAMM.Data
         {
             SqlDataReader DataReader;
             SqlConnection connection = new SqlConnection(connectionString);
-            try 
-            {
+            using (connection){
+
+            
                 SqlCommand command = new SqlCommand();
 
-                    command.CommandText = StoreProcedure;
-                    command.CommandType = CommandType;
-                    if(Timeout != null)
-                    {
-                        command.CommandTimeout = (int)Timeout;
-                    }
-                    foreach(SqlParameter param in Parameters)
-                    {
-                        command.Parameters.Add(param);
-                    }
-                    DataReader = command.ExecuteReader();
-            }
-            finally
-            {
+                command.CommandText = StoreProcedure;
+                command.CommandType = CommandType;
+                if(Timeout != null)
+                {
+                    command.CommandTimeout = (int)Timeout;
+                }
+                foreach(SqlParameter param in Parameters)
+                {
+                    command.Parameters.Add(param);
+                }
 
+                command.Connection = connection;
+
+                connection.Open();
+
+                DataReader = command.ExecuteReader();
+                DataReader.Dispose();
             }
             return DataReader;
         }

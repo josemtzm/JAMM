@@ -82,9 +82,9 @@ namespace JAMM.Model.Entities
 
         public void Load(IDataRecord record)
         {
-            string[] names = record.GetFieldNames();
+            //string[] names = record.GetFieldNames();
 
-            ((IEntity)this).Load(record, names);
+            //((IEntity)this).Load(record, names);
         }
 
         public virtual void Load(IDataRecord record, string[] fieldNames)
