@@ -80,57 +80,96 @@ namespace JAMM.Data
             DT.Load(Reader);
             return DT;
         }
-        protected T ExecuteEntity<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, int? timeout = null) where T : IEntity, new()
+
+        protected void ExecuteNonQuery(string StoreProcedure, IEnumerable<SqlParameter> Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
         {
-            IDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, false, timeout);
-            T obj = new T(); ;
+            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlCommand Command = Connection.CreateCommand();
             try
             {
-                if (Reader.Read())
+                Command.CommandType = CommandType;
+                Command.CommandText = StoreProcedure;
+                if (Timeout != null)
                 {
-                    obj.Load(Reader);
+                    Command.CommandTimeout = (int)Timeout;
                 }
 
+                if (Parameters != null)
+                    foreach (SqlParameter param in Parameters)
+                    {
+                        Command.Parameters.Add(param);
+                    }
+
+
+                Connection.Open();
+                Command.Prepare();
+                Command.ExecuteNonQuery();
+            }
+            catch
+            {
+                // Log
             }
             finally
             {
-                Reader.Dispose();
-
+                Connection.Dispose();
+                Connection.Close();
             }
-            
-            return obj;
         }
-        //protected List<T> ExecuteList<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
-        //protected void ExecuteNonQuery(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
         protected SqlDataReader ExecuteReader(string StoreProcedure, IEnumerable<SqlParameter> Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
         {
-            SqlDataReader DataReader;
-            SqlConnection connection = new SqlConnection(connectionString);
-            using (connection){
-
-            
-                SqlCommand command = new SqlCommand();
-
-                command.CommandText = StoreProcedure;
-                command.CommandType = CommandType;
-                if(Timeout != null)
+            SqlConnection Connection = new SqlConnection(connectionString);
+            SqlCommand Command = new SqlCommand();
+            SqlDataReader DataReader = null;
+            try
+            {
+                Command.CommandText = StoreProcedure;
+                Command.CommandType = CommandType;
+                if (Timeout != null)
                 {
-                    command.CommandTimeout = (int)Timeout;
+                    Command.CommandTimeout = (int)Timeout;
                 }
-                foreach(SqlParameter param in Parameters)
-                {
-                    command.Parameters.Add(param);
-                }
+                if (Parameters != null)
+                    foreach (SqlParameter param in Parameters)
+                    {
+                        Command.Parameters.Add(param);
+                    }
 
-                command.Connection = connection;
-
-                connection.Open();
-
-                DataReader = command.ExecuteReader();
-                DataReader.Dispose();
+                Command.Connection = Connection;
+                
+                Connection.Open();
+                Command.Prepare();
+                DataReader = Command.ExecuteReader(CommandBehavior.CloseConnection);
+                return DataReader;
             }
-            return DataReader;
+            catch
+            {
+                Connection.Dispose();
+                Connection.Close();
+                return null;
+            }
         }
+
+        //protected T ExecuteEntity<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, int? timeout = null) where T : IEntity, new()
+        //{
+        //    IDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, false, timeout);
+        //    T obj = new T(); ;
+        //    try
+        //    {
+        //        if (Reader.Read())
+        //        {
+        //            obj.Load(Reader);
+        //        }
+
+        //    }
+        //    finally
+        //    {
+        //        Reader.Dispose();
+
+        //    }
+
+        //    return obj;
+        //}
+        //protected List<T> ExecuteList<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
         //protected T ExecuteScalar<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
         //protected object ExecuteScalar(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
         //protected T ExecuteScalar<T>(string storeProcedure, T defaultValue, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null);
