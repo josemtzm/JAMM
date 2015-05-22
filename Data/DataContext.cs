@@ -9,18 +9,12 @@ namespace JAMM.Data
     {
         public DataContext(string connectionString)
         {
-            this.connectionString = connectionString;
+            this.ConnectionString = connectionString;
         }
         /// <summary>
         /// The connection string to a database
         /// </summary>
-        private string connectionString;
-
-        public string ConnectionString
-        {
-            get { return connectionString; }
-            set { connectionString = value; }
-        }
+        private string ConnectionString;
 
         /// <summary>
         /// 
@@ -117,7 +111,7 @@ namespace JAMM.Data
         }
         protected SqlDataReader ExecuteReader(string StoreProcedure, IEnumerable<SqlParameter> Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
         {
-            SqlConnection Connection = new SqlConnection(connectionString);
+            SqlConnection Connection = new SqlConnection(ConnectionString);
             SqlCommand Command = new SqlCommand();
             SqlDataReader DataReader = null;
             try
