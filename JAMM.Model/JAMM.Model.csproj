@@ -56,12 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\JAMM.Data.csproj">
-      <Project>{5d8355da-d5f5-47a0-a4a6-b1df23494f2d}</Project>
-      <Name>JAMM.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="DbContext\" />
   </ItemGroup>
