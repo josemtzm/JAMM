@@ -1,0 +1,11 @@
+C:\Users\Jose\Documents\Visual Studio 2013\Projects\JAMM\JAMM.Model\obj\Debug\JAMM.Model.csprojResolveAssemblyReference.cache
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\JAMM.Model.dll
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\JAMM.Model.pdb
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\AntiXssLibrary.dll
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\Data.dll
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\HtmlSanitizationLibrary.dll
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\Data.pdb
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\AntiXssLibrary.xml
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\bin\Debug\HtmlSanitizationLibrary.xml
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\obj\Debug\JAMM.Model.dll
+C:\Users\Jose\documents\visual studio 2013\Projects\JAMM\JAMM.Model\obj\Debug\JAMM.Model.pdb
