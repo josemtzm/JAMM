@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using Oracle.ManagedDataAccess;
 
 namespace JAMM.Data
 {
@@ -143,6 +144,84 @@ namespace JAMM.Data
             }
         }
 
+        #region Oracle
+        protected DataTable ExecuteDataTable(string storeProcedure, OracleParameterCollection parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null)
+        {
+            DataTable DT = new DataTable();
+            OracleDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, prepare, timeout);
+            DT.Load(Reader);
+            return DT;
+        }
+
+        protected OracleDataReader ExecuteReader(string StoreProcedure, OracleParameterCollection Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
+        {
+            OracleConnection Connection = new OracleConnection(ConnectionString);
+            OracleCommand Command = new OracleCommand();
+            OracleDataReader DataReader = null;
+            try
+            {
+                Command.CommandText = StoreProcedure;
+                Command.CommandType = CommandType;
+                if (Timeout != null)
+                {
+                    Command.CommandTimeout = (int)Timeout;
+                }
+                if (Parameters != null)
+                    foreach (OracleParameter param in Parameters)
+                    {
+                        Command.Parameters.Add(param);
+                    }
+
+                Command.Connection = Connection;
+
+                Connection.Open();
+                Command.Prepare();
+                DataReader = Command.ExecuteReader(CommandBehavior.CloseConnection);
+                return DataReader;
+            }
+            catch
+            {
+                Connection.Dispose();
+                Connection.Close();
+                return null;
+            }
+        }
+
+        protected void ExecuteNonQuery(string StoreProcedure, OracleParameterCollection Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
+        {
+            OracleConnection Connection = new OracleConnection(ConnectionString);
+            OracleCommand Command = Connection.CreateCommand();
+            try
+            {
+                Command.CommandType = CommandType;
+                Command.CommandText = StoreProcedure;
+                if (Timeout != null)
+                {
+                    Command.CommandTimeout = (int)Timeout;
+                }
+
+                if (Parameters != null)
+                    foreach (OracleParameter param in Parameters)
+                    {
+                        Command.Parameters.Add(param);
+                    }
+
+
+                Connection.Open();
+                Command.Prepare();
+                Command.ExecuteNonQuery();
+            }
+            catch
+            {
+                // Log
+            }
+            finally
+            {
+                Connection.Dispose();
+                Connection.Close();
+            }
+        }
+        #endregion
         //protected T ExecuteEntity<T>(string storeProcedure, IEnumerable<SqlParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, int? timeout = null) where T : IEntity, new()
         //{
         //    IDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, false, timeout);
