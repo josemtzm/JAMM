@@ -3,3 +3,8 @@ C:\Users\Jose\Documents\Visual Studio 2013\Projects\JAMM\Data\bin\Debug\Data.dll
 C:\Users\Jose\Documents\Visual Studio 2013\Projects\JAMM\Data\bin\Debug\Data.pdb
 C:\Users\Jose\Documents\Visual Studio 2013\Projects\JAMM\Data\obj\Debug\Data.dll
 C:\Users\Jose\Documents\Visual Studio 2013\Projects\JAMM\Data\obj\Debug\Data.pdb
+C:\Users\Jose\Documents\GitHub\JAMM\JAMM.Data\obj\Debug\JAMM.Data.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\JAMM\JAMM.Data\bin\Debug\JAMM.Data.dll
+C:\Users\Jose\Documents\GitHub\JAMM\JAMM.Data\bin\Debug\JAMM.Data.pdb
+C:\Users\Jose\Documents\GitHub\JAMM\JAMM.Data\obj\Debug\JAMM.Data.dll
+C:\Users\Jose\Documents\GitHub\JAMM\JAMM.Data\obj\Debug\JAMM.Data.pdb

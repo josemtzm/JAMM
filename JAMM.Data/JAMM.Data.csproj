@@ -7,8 +7,8 @@
     <ProjectGuid>{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
-    <AssemblyName>Data</AssemblyName>
+    <RootNamespace>JAMM.Data</RootNamespace>
+    <AssemblyName>JAMM.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

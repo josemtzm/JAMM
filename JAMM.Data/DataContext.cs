@@ -27,6 +27,7 @@ namespace JAMM.Data
             set { defaultTimeout = value; }
         }
 
+        #region MSSQLServer
         /// <summary>
         /// Create a SQL Parameter
         /// </summary>
@@ -142,9 +143,10 @@ namespace JAMM.Data
                 return null;
             }
         }
+        #endregion
 
         #region Oracle
-        protected DataTable ExecuteDataTable(string storeProcedure, OracleParameterCollection parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null)
+        protected DataTable ExecuteDataTable(string storeProcedure, IEnumerable<OracleParameter> parameters = null, CommandType commandType = CommandType.StoredProcedure, bool prepare = false, int? timeout = null)
         {
             DataTable DT = new DataTable();
             OracleDataReader Reader = ExecuteReader(storeProcedure, parameters, commandType, prepare, timeout);
@@ -152,7 +154,7 @@ namespace JAMM.Data
             return DT;
         }
 
-        protected OracleDataReader ExecuteReader(string StoreProcedure, OracleParameterCollection Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
+        protected OracleDataReader ExecuteReader(string StoreProcedure, IEnumerable<OracleParameter> Parameters = null, CommandType CommandType = CommandType.StoredProcedure, bool Prepare = false, int? Timeout = null)
         {
             OracleConnection Connection = new OracleConnection(ConnectionString);
             OracleCommand Command = new OracleCommand();
