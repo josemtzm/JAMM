@@ -36,55 +36,35 @@ namespace JAMM.Model
 
         public static string LoggerConfig
         {
-            get { return DbContext.ParameterGet("General.LoggerConfig").Valor; }
+            get { return DbContext.ParameterGet("LoggerConfig").Valor; }
         }
-
-<<<<<<< HEAD
-        public static class FichaEmpleado
-        {
-            public static int LimiteBusqueda
-            {
-                get { return int.Parse(DbContext.ParameterGet("FichaEmpleado.LimiteBusqueda").Valor); }
-            }
-        }
-
-
-
-=======
->>>>>>> origin/master
+			
         public static class Filtros
         {
             public static string UrlAyuda
             {
-                get { return DbContext.ParameterGet("Filtros.UrlAyuda").Valor; }
+                get { return DbContext.ParameterGet("UrlAyuda").Valor; }
             }
 
             public static int CriterioOrdenCantidadMaxima
             {
-                get { return int.Parse(DbContext.ParameterGet("Filtros.CriterioOrdenCantidadMaxima").Valor); }
+                get { return int.Parse(DbContext.ParameterGet("CriterioOrdenCantidadMaxima").Valor); }
             }
         }
 
         public static class Labels
         {
-            public static string NuevaEvaluacionConfirmacionCancelar
+            public static string TestLabel
             {
-                get { return "Al cancelar este paso la evaluación no será creada. ¿Desea continuar?"; }
+                get { return "Esta es una etiqueta de prueba"; }
             }
-
-
         }
 
         public static class WebServices
         {
-            public static string FindEvaluator
+            public static string TestServicio
             {
-                get { return DbContext.ParameterGet("FindEvaluator").Valor; }
-            }
-
-            public static string Objetive
-            {
-                get { return DbContext.ParameterGet("ObjectiveApi").Valor; }
+				get { return DbContext.ParameterGet("TestServicio").Valor; }
             }
         }
     }

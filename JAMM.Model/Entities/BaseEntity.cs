@@ -16,11 +16,7 @@ namespace JAMM.Model.Entities
         private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> Mappings = new Dictionary<Type, Dictionary<string, PropertyInfo>>();
 
         /// <summary>
-<<<<<<< HEAD
         /// Clase para comprar los nombres de campos de forma case insensitive
-=======
-        /// Clase para comparar los nombres de campos de forma case insensitive
->>>>>>> origin/master
         /// </summary>
         private class FieldNameComparer : IEqualityComparer<string>
         {
