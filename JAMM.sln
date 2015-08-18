@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAMM.Data", "Data\JAMM.Data.csproj", "{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAMM.Model", "JAMM.Model\JAMM.Model.csproj", "{96663A26-05BA-43F7-BA03-BFA71B46A9B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAMM.DataOracle", "JAMM.DataOracle\JAMM.DataOracle.csproj", "{28383CB7-BB09-43A5-8081-1E808A717482}"
@@ -28,12 +26,8 @@ Global
 		{28383CB7-BB09-43A5-8081-1E808A717482}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28383CB7-BB09-43A5-8081-1E808A717482}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96663A26-05BA-43F7-BA03-BFA71B46A9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96663A26-05BA-43F7-BA03-BFA71B46A9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
