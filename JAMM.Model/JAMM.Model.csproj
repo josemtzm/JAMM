@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,12 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\JAMM.Data.csproj">
-      <Project>{5d8355da-d5f5-47a0-a4a6-b1df23494f2d}</Project>
-      <Name>JAMM.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="DbContext\" />
   </ItemGroup>
@@ -76,4 +70,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\JAMM.Data\JAMM.Data.csproj">
+      <Project>{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}</Project>
+      <Name>JAMM.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
