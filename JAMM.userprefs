@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Test/Test.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="JAMM.DataOracle/DataContext.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="JAMM.DataOracle/DataContext.cs" Line="237" Column="7" />
+      <File FileName="JAMM.Data/DataContext.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="JAMM" expanded="True">
             <Node name="JAMM.Data" expanded="True" />
-            <Node name="JAMM.DataOracle" expanded="True" selected="True" />
+            <Node name="JAMM.DataOracle" expanded="True" />
             <Node name="JAMM.Model" expanded="True" />
             <Node name="Test" expanded="True" />
           </Node>

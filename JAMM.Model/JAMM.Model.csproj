@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-=======
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
->>>>>>> origin/master
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,10 +52,7 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\MappingAttribute.cs" />
     <Compile Include="Entities\Parameter.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="JsonHelper.cs" />
->>>>>>> origin/master
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,15 +63,12 @@
   <ItemGroup>
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <ProjectReference Include="..\JAMM.Data\JAMM.Data.csproj">
       <Project>{5d8355da-d5f5-47a0-a4a6-b1df23494f2d}</Project>
       <Name>JAMM.Data</Name>
     </ProjectReference>
   </ItemGroup>
->>>>>>> origin/master
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -87,13 +77,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-<<<<<<< HEAD
-  <ItemGroup>
-    <ProjectReference Include="..\JAMM.Data\JAMM.Data.csproj">
-      <Project>{5D8355DA-D5F5-47A0-A4A6-B1DF23494F2D}</Project>
-      <Name>JAMM.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-=======
->>>>>>> origin/master
 </Project>
