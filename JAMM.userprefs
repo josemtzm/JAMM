@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="Test/Test.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="JAMM.DataOracle/DataContext.cs">
+    <Files>
+      <File FileName="JAMM.DataOracle/DataContext.cs" Line="237" Column="7" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="JAMM" expanded="True">
+            <Node name="JAMM.Data" expanded="True" />
+            <Node name="JAMM.DataOracle" expanded="True" selected="True" />
+            <Node name="JAMM.Model" expanded="True" />
+            <Node name="Test" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/josemartinez/Dropbox/Develop/JAMM/JAMM.DataOracle/DataContext.cs" line="200" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Data/JAMM.Data.csproj</String>
+  </DisabledProjects>
+</Properties>
