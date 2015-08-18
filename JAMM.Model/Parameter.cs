@@ -11,8 +11,16 @@ namespace JAMM.Model
         public static Parameter ParameterGet(string label)
         {
             DbContext ctx = new DbContext();
+<<<<<<< HEAD
 
             return ctx.ExecuteEntity<Parameter>("ParameterGet", new[] { new SqlParameter("@Label", SqlDbType.VarChar) { Value = label } });
+=======
+            // TO DO: Implementar ExecuteEntity. 
+            // Este regresa parametros de configuracion que se guardan en la DB
+            ////return ctx.ExecuteEntity<Parameter>("ParameterGet", new[] { new SqlParameter("@Label", SqlDbType.VarChar) { Value = label } });
+            return null;
+            
+>>>>>>> origin/master
         }
 
         public static Table<Parameter> ParameterGetAll()

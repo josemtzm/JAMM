@@ -39,6 +39,7 @@ namespace JAMM.Model
             get { return DbContext.ParameterGet("General.LoggerConfig").Valor; }
         }
 
+<<<<<<< HEAD
         public static class FichaEmpleado
         {
             public static int LimiteBusqueda
@@ -49,6 +50,8 @@ namespace JAMM.Model
 
 
 
+=======
+>>>>>>> origin/master
         public static class Filtros
         {
             public static string UrlAyuda
