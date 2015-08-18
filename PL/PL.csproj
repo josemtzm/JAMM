@@ -4,10 +4,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{009C618C-24DB-4237-BB1F-6C33D6886F2C}</ProjectGuid>
+    <ProjectGuid>{79B0D2EA-624E-4D26-B764-D104E0EB611F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DemoData</RootNamespace>
-    <AssemblyName>DemoData</AssemblyName>
+    <RootNamespace>PL</RootNamespace>
+    <AssemblyName>PL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,22 +34,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Web.Services" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="web.config" />
-    <Content Include="Default.aspx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <MonoDevelop>
@@ -58,4 +42,30 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="AgregarEmpleado.aspx" />
+    <Content Include="BorrarEmpleado.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Default2.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Web.Config" />
+    <Content Include="Web.ConnectionStrings.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgregarEmpleado.aspx.cs">
+      <DependentUpon>AgregarEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BorrarEmpleado.aspx.cs">
+      <DependentUpon>BorrarEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PL.csproj" />
+  </ItemGroup>
 </Project>
