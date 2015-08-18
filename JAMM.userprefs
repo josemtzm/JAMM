@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="Test/Test.csproj">
+﻿<Properties StartupItem="JAMM.Model/JAMM.Model.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench>
     <Files>
